@@ -38,13 +38,8 @@
         WHERE product_id= $old_id";
 
         //Code I got from w3 schools to update database
-        //Only used for update queries
         // Create connection
-        $servername = "localhost";
-        $username = "miguel";
-        $password = "Eahlmlbme99";
-        $dbname = "my_guitar_shop";
-        $conn = new mysqli($servername, $username, $password, $dbname);
+        $conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
         if ($conn->query($query1) === TRUE) {
         echo "Record updated successfully";
         } else {
@@ -74,9 +69,14 @@
             <td>' . $row['discount_percent'] . '</td>
             <td>' . $row['date_added'] . '</td>
             </tr>';
-        echo "</table>"
+        echo "</table>";
+        // Free up the resources.
+        mysqli_free_result($result);
+        // Close the database connection.
+        mysqli_close($dbc);
     ?>
     <form action='products_script.php' method=post>
         <input type=submit name=submit value="Return to table">
     </form>
+    <a href='products_edit.php'> Cancel</a>
 </html>

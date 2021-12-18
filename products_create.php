@@ -1,24 +1,26 @@
 <html>
 <title>Create New Products</title>
 
-<head>Create a new products to be added to the database</head>
+<head>
+    Create a new product to be added to the database</br>
+</head>
 
 <body>
-    <form action="products_script.php" method=post>
+    <br>The product_id and date_added will be assigned manually by the system</br>
+    For a list of categories and their corresponding id, view the categories table</br></br>
+    <form action="products_create2.php" method=post>
         <label for=category_id>Category ID # </label>
-        <input type=text id=category_id name=category_id></br>
+        <input type=number id=category_id name=category_id></br>
         <label for=product_code>Product Code: </label>
         <input type=text id=product_code name=product_code></br>
         <label for=product_name>Product Name: </label>
         <input type=text id=product_name name=product_name></br>
         <label for=description>Description: </label>
-        <input type=text id=description name=description></br>
+        <textarea id=description name=description></textarea></br>
         <label for=list_price>List Price: </label>
-        <input type=text id=list_price name=list_price></br>
+        <input type=number step=0.01 id=list_price name=list_price></br>
         <label for=discount_percent>Discount Percent: </label>
-        <input type=text id=discount_percent name=discount_percent></br>
-        <label for=date_added>Date Added: </label>
-        <input type=text id=date_added name=date_added></br>
+        <input type=number step=0.01 id=discount_percent name=discount_percent></br>
         <input type=submit value=Submit>
 </body>
 

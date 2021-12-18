@@ -14,10 +14,13 @@
 <body>
     <p>
         Please enter text only in the fields that you wish to update</br>
-        If no text is entered in a field then its previous value(shown in the table) will be used</br></br>
-        WARNING: Updating an entry in one table will not change values in any other table.</br>
-        Please use caution when updating primary or foreign keys</br></br>
-        COLUMNS UNABLE TO BE EDITED:</br>
+        If no text is entered in a field then its previous value(shown in the table)
+        will be used</br></br>
+        WARNING: Description MUST be entered every time,
+         you can copy paste from below</br>
+        <br>PLEASE USE CAUTION when updating primary or foreign keys</br>
+        Updating an entry in one table will not change values in any other table.</br>
+        <br>COLUMNS UNABLE TO BE EDITED:</br>
                     *Product ID</br>
                     *Date Added
     </p>
@@ -87,7 +90,7 @@
         
         echo "<label for=description>Description: </label>
             <textarea id=description name=description placeholder='".
-            $string5 . "' size='500' value='" . $string5 . "'></textarea></br>";
+            $string5 . "' size='500' value=" . $string5 . "></textarea></br>";
 
         echo "<label for=list_price>List Price: </label>
             <input type=number step=0.01 id=list_price name=list_price placeholder=".
@@ -112,7 +115,10 @@
 
         echo "<input type=submit value=Submit>";
         
-        
+        // Free up the resources.
+        mysqli_free_result($result);
+        // Close the database connection.
+        mysqli_close($dbc);
     ?>
     </form>
     <a href='products_edit.php'> Cancel</a>

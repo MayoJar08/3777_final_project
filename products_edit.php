@@ -24,7 +24,10 @@ echo '<p><input type="submit" name="edit" value="Edit"
         /></p>
         <input type="hidden" name="submitted" value="TRUE" />
         </form>';
-
+// Free up the resources.
+mysqli_free_result($result);
+// Close the database connection.
+mysqli_close($dbc);
 ?>
 
 <a href='products_script.php'>Cancel</a>
